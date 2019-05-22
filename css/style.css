@@ -182,7 +182,7 @@
  }
 
  .home-text h1 {
-     font-family: MyriadPro;
+     font-family: Arcon;
      font-size: 48px;
      line-height: 60px;
      letter-spacing: 0.96px;
@@ -197,6 +197,7 @@
      font-family: Arcon;
      font-size: 18px;
      color: #FFFFFF;
+     margin-left: 30px;
  }
 
  .hero img {
@@ -528,7 +529,7 @@ TEAM
      color: #fd4040;
      padding: 15px;
      font-family: Arcon;
-     line-height: 1.8;
+     line-height: 1.2;
  }
 
  @media only screen and (max-width: 990px) {
