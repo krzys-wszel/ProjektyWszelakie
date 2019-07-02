@@ -12,24 +12,7 @@ body {
 	height: 100%;
 }
 
- .component {
-    opacity: 0;
-    transition: .4s
-}
- .component.active {
-opacity: 1;
-     transition: .4s
-}
-.component {
-	position: fixed;
-	/*margin-bottom: 3em;
-	height: 15em;*/
-	background: rgba(0,0,0,0.05);
-	font-family: Arcon;
-    top: 10%;
-    left: 5%;
-    z-index: 5;
-}
+ 
 
 .component > h2 {
 	position: absolute;
@@ -67,7 +50,8 @@ opacity: 1;
 	text-transform: uppercase;
 	cursor: pointer;
 	-webkit-backface-visibility: hidden;
-    font-family: Arcon;
+	font-family: Arcon;
+	opacity: 0.6;
 }
 
 .csstransforms .cn-wrapper {
