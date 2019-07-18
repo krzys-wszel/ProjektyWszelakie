@@ -1,4 +1,4 @@
- @import "https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css";
+@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css";
  /*@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');*/
 
  @font-face {
@@ -264,70 +264,192 @@
     -o-transition: all .5s ease;
     transition: all .5s ease
 }
+/*/**************************************************
+*/
 
+.navigation {
+    position: absolute;
+    /*top: 0;*/
+    width: 100%;
+    /* background: #080f17; */
+    display: flex;
+    /* border-bottom: 2px solid rgba(252, 193, 83, .56); */
+    z-index: 99999;
+}
+
+.navigation-block {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navigation-list {
+    flex: 0 0 50%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100%
+}
+
+.navigation-list:first-of-type {
+    justify-content: flex-end;
+    padding-right: 50px
+}
+
+.navigation-list:last-of-type {
+    justify-content: flex-start;
+    padding-left: 50px
+}
+
+.navigation-item {
+    margin: 64px 0 15px;
+width: auto;
+}
+
+.navigation-item a {
+    transition: .3s;
+    color: #fff;
+    font-size: 24px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    padding: 5px 16px;
+    font-family: Arcon;
+}
+
+.navigation-item a:hover {
+    color: #fd4040;
+    text-decoration: none;
+    transition: .3s
+}
+
+.navigation-item.active {
+    position: relative
+}
+
+.navigation-item.active:before {
+    content: '';
+    display: block;
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(to right, transparent, #fcc153, transparent);
+    position: absolute;
+    bottom: -18px;
+    left: 0
+}
 
  
+ 
+@media (max-width:1600px) {
+    .navigation-block {
+        display: none
+    }
+}
 
-/* ---------------------------------
-MY NAV 
-----------------------------------------*/
-.my_nav {
+.navigation-mobile {
+    display: none;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 20px;
+    position: relative;
+    max-height: 420px;
+}
+
+
+.navigation-mobile .navigation-item a {
+    font-size: 18px;
+}
+.navigation-mobile.active {
+    display: none
+}
+
+.navigation-button {
     position: absolute;
-    right: 20px;
-    top: 25px;
-    z-index: 2;
+    top: 43px;
+    right: 13px;
+    color: #fd4040;
+    font-size: 45px;
+    font-family: Roboto, sans-serif;
+    width: 60px;
+    text-align: center;
+    cursor: pointer
 }
-.my_nav_list {
-    display: flex;
-    flex-direction: row;
-}
-.my_nav_list li {
-    padding: 20px;
-    font-size: 20px;
-    list-style-type: none;    
-    color: white;
 
+.navigation-mobile .navigation-list {
+    margin: 130px auto 0;
+    flex-direction: column;  
+    padding: 0 !important;
+    background: #fd4040;
+    width: 210px;
+    /* justify-content: flex-start; */
+    /* align-items: unset; */
+    position: absolute;
+    right: 30px;
 }
-.my_nav_list li a {
-    color: white;
-    font-family: Arcon;
-    padding: 10px;
-    text-decoration: none
+
+.navigation-mobile .navigation-item {
+    width: 100%;
+    margin: 5px 0;
 }
-.my_nav_list li a:hover {
-    color:  #fd4040;
-    /*transition-duration: 0.5s;*/
-  
+.navigation-mobile .navigation-item a:hover {
+    color: grey;
+    margin-left: 55px;
+    transition: color 0.5s, margin-left 0.5s;
 }
-.nav_contact {
+.navigation-mobile .navigation-item.active:before {
+    bottom: -1px
+}
+
+@media (max-width:1600px) {
+    .navigation-mobile {
+        display: block
+    }
+    .navigation {
+        height: 95px;
+        transition: .3s
+    }
+    .navigation.active {
+        height: 500px;
+        transition: .3s
+    }
+}
+.dopasuj {
     background: #fd4040;
     border-radius: 50px;
-}
-.nav_contact:hover {
-    color: #fd4040;
-    border: 1px solid  #fd4040;
+} 
+.dopasuj:hover {
     background: white;
-   
-}
-@media only screen and (max-width: 1200px){
-    .my_nav {
-        top: -20px;
-    }
-}
-@media only screen and (max-width: 1600px) {
-    .my_nav_list {
-        flex-direction: column;
-        text-align: center;
-    }
-}
-@media only screen and (max-width: 967px) {
-    .my_nav {
-       display: none;
-    }
+    transition: 0.3s;
 }
 /*---------------------------------------
  MENU
  -------------------------------------------*/
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  /*@import url('https://fonts.googleapis.com/css?family=Montserrat:900');*/
  
@@ -384,18 +506,20 @@ MY NAV
    
  }
  .menu_container ul.links li a {
-   color: white;
-   text-decoration: none;
-   transition: color 0.5s;
- /*  text-transform: uppercase;*/
-   font-size: 18px;
-   font-family: Arcon;
-   transition: color 0.5s, margin-left 0.5s;
-   margin-left: 45px;
+    color: white;
+    text-decoration: none;
+    transition: color 0.5s;
+    /* text-transform: uppercase; */
+    font-size: 18px;
+    font-family: Arcon;
+    transition: color 0.5s, margin-left 0.5s;
+    margin-left: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
  }
  
  .menu_container ul.links li a:hover {
-   color: #fd4040;
+   color:gray;
    margin-left: 65px;
    transition: color 0.5s, margin-left 0.5s;
  }
@@ -407,7 +531,7 @@ MY NAV
     top: 56px;
     left: 75px;
 }
- }
+ 
  /*.menu_container ul.links li a:before {
     content: "";
     width: 100px;
@@ -423,6 +547,8 @@ MY NAV
     position: fixed;
 }
 
+ 
+
 
 
  /*---------------------------------------
@@ -430,6 +556,7 @@ MY NAV
 -----------------------------------------*/
 .home-text {
     margin-left: 120px;
+    max-width: 550px;;
 }
  .hero {
      font-weight: 500;
@@ -457,7 +584,7 @@ MY NAV
      font-size: 18px;
      color: #FFFFFF;
      margin-left: 30px;
-     max-width: 50%;
+     max-width: 90%;
  }
 
  .hero img {
@@ -515,15 +642,32 @@ MY NAV
  #what {
      padding-top: 100px;
      padding-bottom: 100px;
-     background: url('../Images/back2.svg');
+    /*background: url('../Images/ww.svg');*/
      text-align: center;
      background-size: cover;
+     position: relative;
+     max-height: 1080px;
  }
+  
 
  #what .container {
      text-align: center;
+     /*background: url('/Images/w\ duze.svg')*/
  }
-
+.W-background {
+    position: absolute;
+    width: 1280px;
+    left: -397px;
+    top: -246px;
+    z-index: -1;
+}
+.W-background-2 {
+    position: absolute;
+    width: 1100px;
+    right: -466px;
+    top: 50%;
+    z-index: -1;
+}
 
  #what h1 {
     position: relative;
@@ -552,28 +696,43 @@ MY NAV
      color: #1a1a1a;
  }
 
- #what .image img {
+ #what svg{
      width: 220px;
      margin-top: 50px;
  }
 
- #what .image img:hover {
-     -moz-box-shadow: inset 1px 1px 75px lightgray;
-     -webkit-box-shadow: inset 1px 1px 75px lightgray;
-     box-shadow: inset 1px 1px 75px lightgray;
-     border-radius: 50%
- }
+  
 
  #what .row-1 {
      text-align: center;
      padding-bottom: 100px;
  }
-
+ #what svg:hover .cls-1  { 
+    stroke: grey;    
+}
+#what svg:hover .cls-2  { 
+    stroke: grey;    
+}
+#what svg:hover .cls-3  { 
+    stroke: grey;    
+}
+#what svg:hover .cls-4  { 
+    stroke: grey;    
+}
+#what svg:hover .cls-5  { 
+    stroke: grey;    
+}
+#what svg:hover .cls-6  { 
+    stroke: grey;    
+}
+#what .ico-6 {
+    stroke: white;
+}
  @media only screen and (max-width: 767px) {
-     #what .image img {
+     #what svg {
          width: 100px;
-         padding-top: 20px;
-     }
+        margin-top: 20px;
+    height: 120px;;     }
  }
 
  /*-------------------------------
@@ -587,10 +746,10 @@ GALERIA
      position: relative;
 
 
-     background: #fd4040;
+     
      padding: 10px;
      width: 250px;
-     border: 1px solid #fd4040;
+     border: 1px solid white;
      border-radius: 100px;
      /* left: 50%;
      transform: translateX(-50%);*/
@@ -679,22 +838,23 @@ TEAM
      text-align: -webkit-center;
      padding-top: 100px;
      padding-bottom: 50px;
-     background: url('../Images/back2.svg');
+     /*background: url('../Images/back2.svg');*/
      background-size: cover;
+     position: relative;
  }
 
  .our-team {
      text-align: center;
-     margin: 30px;
+     /*margin: 20px;*/
  }
 
  .our-team .pic {
-     border-radius: 50%;
+     /*border-radius: 50%;*/
      overflow: hidden;
      position: relative;
  }
 
- .our-team .pic:before,
+ /*.our-team .pic:before,
  .our-team .pic:after {
      content: "";
      width: 100%;
@@ -705,7 +865,7 @@ TEAM
      position: absolute;
      top: 0;
      left: 0;
- }
+ }*/
 
  .our-team .pic:after {
      /*border-color: #5f15c0 #e6e5e5 #e6e5e5 #5f15c0;*/
@@ -721,7 +881,7 @@ TEAM
 
  .our-team img {
      width: 100%;
-     height: auto;
+    
  }
 
  .our-team .title {
@@ -818,6 +978,13 @@ TEAM
      }
  }
 
+ @media only screen and (min-width: 768px){
+ .our-team {
+    text-align: center;
+    margin: 20px;
+}
+ }
+
  /*******************************
 TESTIMONTIALS
  -------------------------------*/
@@ -889,14 +1056,16 @@ TESTIMONTIALS
     font-size: 60px;
     background: transparent;
     /* opacity: 0.5; */
-    top: 35px;
+   top: 35px;
     padding: 100px;
-    ;
+  
  }
 
  .owl-theme .owl-prev {
      position: relative;
      left: -45px;
+    
+
  }
 
  .owl-theme .owl-next {
@@ -926,10 +1095,10 @@ TESTIMONTIALS
      position: relative;
 
      color: white;
-     background: #fd4040;
+    
      padding: 10px;
      width: 250px;
-     border: 1px solid #fd4040;
+     border: 1px solid white;
      border-radius: 100px;
      /* left: 50%;
      transform: translateX(-50%);*/
@@ -978,16 +1147,15 @@ TESTIMONTIALS
  }
 
  .slider p {
-
      position: relative;
-     background: #fd4040;
+     /*background: #fd4040;*/
      padding: 10px;
      width: 250px;
-     border: 1px solid #fd4040;
+     /*border: 1px solid #fd4040;*/
      border-radius: 100px;
      letter-spacing: 3px;     
      font-family: Arcon;
-     font-size: 24px;
+     font-size: 26px;
      color: #FFFFFF
  }
 
@@ -1031,9 +1199,10 @@ TESTIMONTIALS
  }
 
  .slider .slide {
-     height: 100px;
-     width: 350px;
-     margin: 15px;
+     
+     width: 250px;
+     margin-left: 20px;
+     margin-right: 20px;
  }
 
  .social-icon-footer {
@@ -1074,11 +1243,13 @@ TESTIMONTIALS
   CONTACT             
 -----------------------------------------*/
  .contact {
-     font-family: myriad;
-     padding-top: 50px;
+     font-family: MyriadPro;
+     
      padding-bottom: 50px;
-     background: url("../Images/back2.svg");
+     /*background: url("../Images/back2.svg");*/
      background-size: cover;
+     position: relative;
+     max-height: 1080px;
  }
 
  .contact .col-xl-8 {
@@ -1122,7 +1293,7 @@ TESTIMONTIALS
      font-display: bold;
      text-align: left;
      font-size: 32px;
-     margin-left: 30px;
+     margin-left: 15px;
 
 
 
@@ -1152,7 +1323,7 @@ margin-left: 15px;
  }
 
  .contact .row {
-     padding-top: 125px;
+     padding-top: 100px;
  }
 
  .container-contact100 {
@@ -1206,6 +1377,48 @@ margin-left: 15px;
  .contact_icon img {
      padding-bottom: 10px;
  }
+
+
+
+.name, .lname, .email {
+    width: 250px;
+    font-size: 26px;
+    border-bottom: 2px solid lightgray;
+}
+.lname {
+    margin: 0px 20px 0px 20px;
+}
+.need {
+    width: 85%;
+    font-size: 26px;
+    border-bottom: 2px solid lightgray;
+    margin-top: 50px;
+}
+
+.subject {
+    border: 2px solid lightgray;
+    width: 85%;
+    height: 250px;
+    margin-top: 50px;
+}
+.send {
+    width: 100px;
+    padding: 5px;
+    background: #fd4040;
+    border-radius: 50px;
+    z-index: 6;
+    position: absolute;
+    bottom: -50px;
+    right: 10%;
+}
+
+
+
+
+
+
+
+
 
 
  @media only screen and (max-width: 1199px) {
